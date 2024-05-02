@@ -16,6 +16,7 @@ android {
         versionCode = config.versions.versionCode.get().toInt()
         versionName = config.versions.versionName.get()
         buildConfigField("String","BASE_URL","\"https://www.googleapis.com/youtube/v3/\"")
+        buildConfigField("String","API_KEY","\"AIzaSyDyLGRas-kZFUc2kUusMSB4sED9X-PbzWI\"")
         buildConfigField("String","CHANEL_ID","\"UC2oIn4q3AiBK5-I-NbqMvFw\"")
         testInstrumentationRunner = config.versions.testInstrumentationRunner.get()
     }
@@ -38,6 +39,7 @@ android {
     }
     buildFeatures{
         viewBinding = true
+        buildConfig = true
     }
 }
 
