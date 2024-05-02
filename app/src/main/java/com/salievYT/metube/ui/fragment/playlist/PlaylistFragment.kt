@@ -7,21 +7,14 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.myself223.metube.R
 import com.myself223.metube.databinding.FragmentHomeBinding
+import com.myself223.metube.databinding.FragmentPlaylistDetailBinding
+import com.salievYT.metube.base.BaseFragment
 
-class PlaylistFragment : Fragment() {
-    private val binding : FragmentHomeBinding by lazy {
-        FragmentHomeBinding.inflate(layoutInflater)
-    }
+class PlaylistFragment : BaseFragment<FragmentHomeBinding>() {
+    override fun getViewBinding(): FragmentHomeBinding = FragmentHomeBinding.inflate(layoutInflater)
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
+    override fun initialize() {
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_home, container, false)
     }
 
 }

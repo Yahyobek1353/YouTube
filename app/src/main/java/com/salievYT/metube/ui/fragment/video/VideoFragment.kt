@@ -6,17 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.myself223.metube.R
+import com.myself223.metube.databinding.FragmentVideoBinding
+import com.salievYT.metube.base.BaseFragment
 
-class VideoFragment : Fragment() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_video, container, false)
-    }
+class VideoFragment : BaseFragment<FragmentVideoBinding>() {
+    override fun getViewBinding(): FragmentVideoBinding = FragmentVideoBinding.inflate(layoutInflater)
 
 }
