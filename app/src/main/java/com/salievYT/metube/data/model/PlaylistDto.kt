@@ -1,16 +1,18 @@
 package com.salievYT.metube.data.model
 
-import android.graphics.pdf.PdfDocument.PageInfo
-import android.support.v4.os.IResultReceiver2.Default
+import com.google.gson.annotations.SerializedName
+
 
 data class PlaylistDto<T>(
     val kind : String? = null,
-    val etag : String? = null,
+    @SerializedName("etag")
+    val tag : String? = null,
     val nextPageToken : String? = null,
     val prevPageToken : String? = null,
     val pageInfo : PageInfoDto? = null,
     val items : List<T>? = null
 )
+
 data class ItemPlayList (
     val kind : String? = null,
     val etag : String? = null,

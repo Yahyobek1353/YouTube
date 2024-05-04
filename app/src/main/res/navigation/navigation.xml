@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation.xml"
+    app:startDestination="@id/playlistFragment">
+
+    <fragment
+        android:id="@+id/playlistFragment"
+        android:name="com.salievYT.metube.ui.fragment.playlist.PlaylistFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_playlistFragment_to_playlistDetailFragment"
+            app:destination="@id/playlistDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/playlistDetailFragment"
+        android:name="com.salievYT.metube.ui.fragment.deteil_playlist.PlaylistDetailFragment"
+        android:label="fragment_playlist_detail"
+        tools:layout="@layout/fragment_playlist_detail" />
+    <fragment
+        android:id="@+id/videoFragment"
+        android:name="com.salievYT.metube.ui.fragment.video.VideoFragment"
+        android:label="fragment_video"
+        tools:layout="@layout/fragment_video" />
+</navigation>

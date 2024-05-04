@@ -56,16 +56,6 @@ ok-http-client = {group ="com.squareup.okhttp3",name = "okhttp",version.ref = "o
 life-cycler = {group = "androidx.lifecycle",name = "lifecycle-livedata-ktx",version.ref="life-cycler-version"}
 life-cycler-view-model = {group = "androidx.lifecycle",name = "lifecycle-viewmodel-ktx",version.ref="life-cycler-version"}
 
-
-
-
-
-
-
-
-
-
-
 [bundles]
 ui-component = ["androidx-core-ktx","androidx-appcompat","material","androidx-activity","androidx-constraintlayout","nav-fragment","nav-ui-ktx","life-cycler","life-cycler-view-model"]
 test-component = ["junit","androidx-junit","androidx-espresso-core"]

@@ -10,10 +10,11 @@ import com.myself223.metube.databinding.ItemHomeBinding
 import com.salievYT.metube.data.model.ItemPlayList
 import com.salievYT.metube.data.model.PlaylistDto
 
-class PlaylistAdapter : ListAdapter<PlaylistDto<ItemPlayList>, PlaylistAdapter.PlaylistViewHolder >(PlaylistDiffUtill) {
+class PlaylistAdapter : ListAdapter<ItemPlayList, PlaylistAdapter.PlaylistViewHolder >(PlaylistDiffUtill()) {
     inner class PlaylistViewHolder(private val binding: ItemHomeBinding) : ViewHolder(binding.root) {
-        fun onBind(model: PlaylistDto<ItemPlayList>?) {
-            Glide.with(binding.root).load("https:${model?.snippet?.thumbnails?.medium?.url}").into(binding.itemPlaylistImg)
+        fun onBind(it: ItemPlayList?) {
+            Glide.with(binding.root).load("https:${it?.snippet?.thumbnails?.medium?.url}").into(binding.itemPlaylistImg)
+            binding.textView.text = it?.snippet?.title
 
         }
     }
@@ -28,12 +29,12 @@ class PlaylistAdapter : ListAdapter<PlaylistDto<ItemPlayList>, PlaylistAdapter.P
     }
 }
 
-class PlaylistDiffUtill : DiffUtil.ItemCallback<PlaylistDto<ItemPlayList>>() {
-    override fun areItemsTheSame(oldItem: PlaylistDto<ItemPlayList>, newItem: PlaylistDto<ItemPlayList>): Boolean {
+class PlaylistDiffUtill : DiffUtil.ItemCallback<ItemPlayList>() {
+    override fun areItemsTheSame(oldItem: ItemPlayList, newItem:ItemPlayList): Boolean {
         return oldItem == newItem
     }
 
-    override fun areContentsTheSame(oldItem: PlaylistDto<ItemPlayList>, newItem: PlaylistDto<ItemPlayList>): Boolean {
+    override fun areContentsTheSame(oldItem: ItemPlayList, newItem: ItemPlayList): Boolean {
         return oldItem == newItem
     }
 

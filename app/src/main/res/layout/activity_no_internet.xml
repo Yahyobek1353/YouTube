@@ -9,6 +9,7 @@
 
 
     <ImageView
+        android:id="@+id/img_no_internet"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/no_internet"
@@ -16,5 +17,20 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="30dp"
+        android:backgroundTint="#AE681D"
+        android:text="Change Internet"
+        android:textSize="20sp"
+        app:cornerRadius="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/img_no_internet"
+        tools:layout_editor_absoluteX="20dp" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
