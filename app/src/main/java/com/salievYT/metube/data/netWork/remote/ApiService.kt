@@ -7,7 +7,7 @@ import com.salievYT.metube.data.model.PlaylistDto
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query
-import java.io.Serializable
+
 
 interface ApiService {
 
@@ -21,6 +21,6 @@ interface ApiService {
 
     companion object{
         const val PART = "snippet , contentDetails"
-        const val MAX_RESULT = 50
+        const val MAX_RESULT = 10
     }
 }

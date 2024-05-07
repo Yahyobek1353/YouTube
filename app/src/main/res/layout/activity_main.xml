@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     tools:context="com.salievYT.metube.ui.activity.MainActivity">
 
-    <fragment
+    <androidx.fragment.app.FragmentContainerView
         app:defaultNavHost="true"
         app:navGraph="@navigation/navigation"
         android:name="androidx.navigation.fragment.NavHostFragment"

@@ -11,7 +11,8 @@ activity = "1.9.0"
 constraintlayout = "2.1.4"
 #Retrofit
 retrofit-convertor-version = "2.3.0"
-
+#Koin
+koin-bom = "3.4.0"
 #Retrofit
 retrofit-version = "2.9.0"
 #Hilt
@@ -55,11 +56,14 @@ ok-http-client = {group ="com.squareup.okhttp3",name = "okhttp",version.ref = "o
 #LifeCycler
 life-cycler = {group = "androidx.lifecycle",name = "lifecycle-livedata-ktx",version.ref="life-cycler-version"}
 life-cycler-view-model = {group = "androidx.lifecycle",name = "lifecycle-viewmodel-ktx",version.ref="life-cycler-version"}
+koin-bom = { module = "io.insert-koin:koin-android", version.ref = "koin-bom" }
+koin-core = { module = "io.insert-koin:koin-core", version.ref = "koin-bom" }
 
 [bundles]
 ui-component = ["androidx-core-ktx","androidx-appcompat","material","androidx-activity","androidx-constraintlayout","nav-fragment","nav-ui-ktx","life-cycler","life-cycler-view-model"]
 test-component = ["junit","androidx-junit","androidx-espresso-core"]
-network-component = ["retrofit","retrofit-convertor","glide","ok-http-client",]
+network-component = ["retrofit","retrofit-convertor","glide","ok-http-client"]
+koin-component = ["koin-bom" , "koin-core"]
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

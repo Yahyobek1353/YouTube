@@ -7,11 +7,15 @@ import com.salievYT.metube.data.model.PlaylistDto
 import com.salievYT.metube.data.netWork.repository.YoutubeRepository
 import javax.inject.Inject
 
-class PlaylistViewModel @Inject constructor(
+class PlaylistViewModel (
     private val repository: YoutubeRepository
 )   : ViewModel(){
-    var liveData = MutableLiveData<PlaylistDto<ItemPlayList>>()
+
+
+    private var _liveData = MutableLiveData<PlaylistDto<ItemPlayList>>()
+    val liveData get() = _liveData
+
     fun getPlaylist(){
-        liveData = repository.getPlayList()
+        _liveData = repository.getPlayList() as MutableLiveData<PlaylistDto<ItemPlayList>>
     }
 }

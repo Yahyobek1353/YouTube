@@ -48,6 +48,7 @@ dependencies {
     implementation(libs.bundles.ui.component)
     implementation(libs.bundles.test.component)
     implementation(libs.bundles.network.component)
+    implementation(libs.bundles.koin.component)
 
     //Hilt
     implementation(libs.hilt.android)

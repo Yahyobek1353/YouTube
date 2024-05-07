@@ -1,3 +1,4 @@
+@file:Suppress("DEPRECATION")
 package com.salievYT.metube.ui.other
 
 import android.content.Context
