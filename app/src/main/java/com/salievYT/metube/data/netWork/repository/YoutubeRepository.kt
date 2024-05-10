@@ -1,5 +1,6 @@
 package com.salievYT.metube.data.netWork.repository
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.salievYT.metube.data.model.ItemPlayList
@@ -20,11 +21,13 @@ class YoutubeRepository(private val apiService: ApiService) {
             ) {
                 if (response.isSuccessful){
                     liveData.value = response.body()
+                } else {
+                    Log.e("ololo", response.message())
                 }
             }
 
             override fun onFailure(call: Call<PlaylistDto<ItemPlayList>>, t: Throwable) {
-
+                Log.e("ololo", t.localizedMessage!!)
             }
 
         })

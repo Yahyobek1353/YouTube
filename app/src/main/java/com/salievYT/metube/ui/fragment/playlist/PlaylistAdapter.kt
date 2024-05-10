@@ -10,32 +10,45 @@ import com.myself223.metube.databinding.ItemHomeBinding
 import com.salievYT.metube.data.model.ItemPlayList
 import com.salievYT.metube.data.model.PlaylistDto
 
-class PlaylistAdapter : ListAdapter<ItemPlayList, PlaylistAdapter.PlaylistViewHolder >(PlaylistDiffUtill()) {
-    inner class PlaylistViewHolder(private val binding: ItemHomeBinding) : ViewHolder(binding.root) {
-        fun onBind(it: ItemPlayList?) {
-            Glide.with(binding.root).load("https:${it?.snippet?.thumbnails?.medium?.url}").into(binding.itemPlaylistImg)
-            binding.textView.text = it?.snippet?.title
-
+class PlaylistAdapter(playlistsFragment: PlaylistFragment, private val click: Click) : ListAdapter<PlaylistDto<ItemPlayList>, PlaylistAdapter.HomeViewHolder>(
+    HomeDiffUtill()
+) {
+    class HomeViewHolder(private val binding: ItemHomeBinding) : ViewHolder(binding.root) {
+        fun onBind(it: PlaylistDto<ItemPlayList>) {
+            binding.textView.text = it.items?.get(0)?.snippet?.title
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PlaylistViewHolder {
-        return PlaylistViewHolder(ItemHomeBinding.inflate(LayoutInflater.from(parent.context) ,parent , false ))
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeViewHolder {
+        return HomeViewHolder(ItemHomeBinding.inflate(LayoutInflater.from(parent.context), parent, false))
     }
 
-    override fun onBindViewHolder(holder: PlaylistViewHolder, position: Int) {
-        val modelPlaylist = getItem(position)
-        holder.onBind(modelPlaylist)
-    }
-}
-
-class PlaylistDiffUtill : DiffUtil.ItemCallback<ItemPlayList>() {
-    override fun areItemsTheSame(oldItem: ItemPlayList, newItem:ItemPlayList): Boolean {
-        return oldItem == newItem
+    override fun onBindViewHolder(holder: HomeViewHolder, position: Int) {
+        val homeModel = getItem(position)
+        holder.itemView.setOnClickListener {
+            click.onClick(homeModel)
+        }
+        holder.onBind(homeModel)
     }
 
-    override fun areContentsTheSame(oldItem: ItemPlayList, newItem: ItemPlayList): Boolean {
-        return oldItem == newItem
+    class HomeDiffUtill : DiffUtil.ItemCallback<PlaylistDto<ItemPlayList>>() {
+        override fun areItemsTheSame(
+            oldItem: PlaylistDto<ItemPlayList>,
+            newItem: PlaylistDto<ItemPlayList>
+        ): Boolean {
+            return oldItem == newItem
+
+        }
+
+        override fun areContentsTheSame(
+            oldItem: PlaylistDto<ItemPlayList>,
+            newItem: PlaylistDto<ItemPlayList>
+        ): Boolean {
+            return oldItem == newItem
+        }
     }
 
+    interface Click {
+        fun onClick(model: PlaylistDto<ItemPlayList>)
+    }
 }

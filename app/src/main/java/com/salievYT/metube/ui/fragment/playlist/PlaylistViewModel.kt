@@ -10,12 +10,6 @@ import javax.inject.Inject
 class PlaylistViewModel (
     private val repository: YoutubeRepository
 )   : ViewModel(){
+    fun getPlaylist() = repository.getPlayList()
 
-
-    private var _liveData = MutableLiveData<PlaylistDto<ItemPlayList>>()
-    val liveData get() = _liveData
-
-    fun getPlaylist(){
-        _liveData = repository.getPlayList() as MutableLiveData<PlaylistDto<ItemPlayList>>
-    }
 }

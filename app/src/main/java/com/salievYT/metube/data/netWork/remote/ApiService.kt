@@ -20,7 +20,7 @@ interface ApiService {
     ): Call<PlaylistDto<ItemPlayList>>
 
     companion object{
-        const val PART = "snippet , contentDetails"
+        const val PART = "snippet,contentDetails"
         const val MAX_RESULT = 10
     }
 }
